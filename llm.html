@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coze Web Chat</title>
+    <link rel="stylesheet" href="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.css">
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
+</head>
+<body>
+    <div id="coze-chat-container"></div>
+    
+    <script>
+        const cozeWebSDK = new CozeWebSDK.WebChatClient({
+            config: {
+                bot_id: '7495214657624588338',
+            },
+            componentProps: {
+                title: 'Coze',
+            },
+            auth: {
+                type: 'token',
+                token: 'pat_DoJVXqopMNPw33JjcGkW6oGwzt1ratKiF6AQMQsqWomRpDNQSFUDBjUZhr9kB1i7',
+                onRefreshToken: function () {
+                    return 'pat_DoJVXqopMNPw33JjcGkW6oGwzt1ratKiF6AQMQsqWomRpDNQSFUDBjUZhr9kB1i7';
+                }
+            },
+            ui: {
+                base: {
+                    layout: "mobile"
+                },
+                header: {
+                    isNeedClose: false
+                },
+                asstBtn: {
+                    isNeed: false
+                },
+                footer: {
+                    isShow: true,
+                    expressionText: "本模型由江南大学未来食品科学中心提供，生成内容仅供参考"
+                },
+            chatBot: {
+                title: "食品风味"
+            }
+            }
+        });
+        cozeWebSDK.showChatBot();
+    </script>
+</body>
+</html>
